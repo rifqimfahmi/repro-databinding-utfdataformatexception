@@ -1,6 +1,6 @@
-apply plugin: "com.android.application"
-apply plugin: "org.jetbrains.kotlin.android"
-apply plugin: "kotlin-kapt"
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-kapt'
 
 android {
     buildFeatures {
@@ -10,13 +10,11 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.reprodatabindinnontransitiver"
         minSdk 21
         targetSdk 30
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -46,7 +44,4 @@ dependencies {
 
     implementation("com.google.dagger:dagger:2.37")
     kapt "com.google.dagger:dagger-compiler:2.37"
-
-    implementation project(":binding-modules:module-a")
-    implementation project(":binding-modules:module-b")
 }
